@@ -15,5 +15,4 @@ def add(num1, num2, modifier):
             return num1 * num2
 
 
-print(add(3, 0, True))
-print(add(3, 3, False))
+
