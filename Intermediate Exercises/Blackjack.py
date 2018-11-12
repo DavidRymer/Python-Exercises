@@ -12,6 +12,7 @@ def blackjack(card1, card2):
 print(blackjack(18, 21))
 print(blackjack(21, 18))
 print(blackjack(22, 22))
+print(blackjack(14, 18))
 
 
 
