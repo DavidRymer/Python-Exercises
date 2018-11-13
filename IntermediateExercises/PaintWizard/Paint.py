@@ -7,21 +7,21 @@ class Paint(object):
         self.price = price
         self.area_per_litre = area_per_litre
 
-    def waste(self, total_area):
-
-        if total_area % self.area_per_litre == 0:
-            return 0
-        else:
-            return self.volume
-
-    def cost(self, total_area):
-
+    def number_of_cans(self, total_area):
         number_of_cans = total_area/(self.volume * self.area_per_litre)
 
         if total_area % (self.volume * self.area_per_litre) > 0:
-            return math.floor(number_of_cans)*self.price + self.price
+            return math.floor(number_of_cans) + 1
         else:
-            return number_of_cans * self.price
+            return number_of_cans
+
+    def waste(self, total_area):
+
+        return self.number_of_cans(total_area) * self.volume - (total_area/self.area_per_litre)
+
+    def cost(self, total_area):
+
+        return self.number_of_cans(total_area) * self.price
 
 
 class CheapoMax(Paint):
