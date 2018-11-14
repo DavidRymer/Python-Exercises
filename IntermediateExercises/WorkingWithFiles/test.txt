@@ -1,0 +1,40 @@
+Name: David Rymer
+Occupation: Software Developer
+Age: 21
+ 
+Name: Donny Soldier
+Occupation: Joiner
+Age: 32
+ 
+Name: Donald Trump
+Occupation: President
+Age: 72
+ 
+Name: John Smith
+Occupation: Plumber
+Age: 33
+ 
+Name: Paul Hawkins
+Occupation: Chemist
+Age: 45
+ 
+Name: David Rymer
+Occupation: Software Developer
+Age: 21
+ 
+Name: Donny Soldier
+Occupation: Joiner
+Age: 32
+ 
+Name: Donald Trump
+Occupation: President
+Age: 72
+ 
+Name: John Smith
+Occupation: Plumber
+Age: 33
+ 
+Name: Paul Hawkins
+Occupation: Chemist
+Age: 45
+ 
