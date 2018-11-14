@@ -20,7 +20,7 @@ for person in people:
 
 file.close()
 
-with open("test.txt", "a") as myfile:
+with open("test.txt", "a") as file:
     for person in people:
-        myfile.write(
+        file.write(
             "Name: " + person.name + "\nOccupation: " + person.occupation + "\nAge: " + str(person.age) + "\n \n")

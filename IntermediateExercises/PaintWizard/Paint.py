@@ -1,7 +1,8 @@
 import math
+from abc import ABC
 
 
-class Paint(object):
+class Paint(ABC):
     def __init__(self, volume, price, area_per_litre):
         self.volume = volume
         self.price = price
@@ -39,3 +40,5 @@ class DuluxourousPaints(Paint):
         Paint.__init__(self, 10, 25.0, 20)
 
 
+a = Paint(33, 33, 33)
+print(a.volume)
