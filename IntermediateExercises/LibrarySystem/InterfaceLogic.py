@@ -1,9 +1,5 @@
 from IntermediateExercises.LibrarySystem.Library import Library
-from IntermediateExercises.LibrarySystem.Book import Book
-from IntermediateExercises.LibrarySystem.Newspaper import Newspaper
-from IntermediateExercises.LibrarySystem.Magazine import Magazine
-from IntermediateExercises.LibrarySystem.Customer import Customer
-from IntermediateExercises.LibrarySystem.Employee import Employee
+from IntermediateExercises.LibrarySystem.helper import *
 
 system = Library([], [])
 
@@ -78,3 +74,97 @@ def remove_person():
     chosen_person = input("Please enter the ID of the person you would like to remove. \n")
     global system
     system.delete_person(chosen_person)
+
+
+def check_in():
+    chosen_resource = input("Please enter the ID of the resource you would like to check in. \n")
+    global system
+    system.get_item(chosen_resource).check_in()
+
+
+def check_out():
+    chosen_resource = input("Please enter the ID of the resource you would like to check out. \n")
+    global system
+    system.get_item(chosen_resource).check_out()
+
+
+def show_resources():
+    global system
+
+    if not system.resources:
+        print("There are currently no resources in the system. \n")
+    else:
+        for resource in system.resources:
+            print(resource.to_string())
+
+    write_resources_to_file()
+
+
+def show_people():
+    global system
+
+    if not system.people:
+        print("There are currently no people in the system. \n")
+    else:
+        for person in system.people:
+            print(person.to_string())
+
+    write_people_to_file()
+
+
+def write_people_to_file():
+    choice = input("Would you like to write the current list of people to a file? "
+                   "\nA) Yes. "
+                   "\nB) No. ").upper()
+
+    if choice == "A":
+        global system
+        print("You chose to write to the file")
+        file = open("people.txt", "a")
+        for person in system.people:
+            file.write(str(person.to_string()) + "\n")
+        file.close()
+    elif choice == "B":
+        print("You chose not to write to the file")
+    else:
+        print("Please choose one of the options")
+        write_people_to_file()
+
+
+def write_resources_to_file():
+    choice = input("Would you like to write the current list of resources to a file? "
+                   "\nA) Yes. "
+                   "\nB) No. ").upper()
+
+    if choice == "A":
+        global system
+        file = open("resources.txt", "a")
+        print("You chose to write to the file")
+        for resource in system.resources:
+            file.write(str(resource.to_string()) + "\n")
+        file.close()
+    elif choice == "B":
+        print("You chose not to write to the file")
+    else:
+        print("Please choose one of the options")
+        write_people_to_file()
+
+
+def load_resources_from_file():
+    global system
+    for line in load_resources():
+        if check_type(line) == "Book":
+            system.resources.append(line_to_book(line))
+        elif check_type(line) == "Newspaper":
+            system.resources.append(line_to_newspaper(line))
+        elif check_type(line) == "Magazine":
+            system.resources.append(line_to_magazine(line))
+
+
+def load_people_from_file():
+    global system
+    for line in load_people():
+        if check_type(line) == "Customer":
+            system.people.append(line_to_customer(line))
+        elif check_type(line) == "Employee":
+            system.people.append(line_to_employee(line))

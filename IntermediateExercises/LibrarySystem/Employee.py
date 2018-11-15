@@ -8,5 +8,10 @@ class Employee(Person):
         self.age = age
         self.salary = salary
 
+    def to_string(self):
+        return "ID: " + str(self.person_id) + ", Name: " \
+               + str(self.name) + ", Age: " + str(self.age) \
+                + ", Salary: " + str(self.salary)
+
 
 

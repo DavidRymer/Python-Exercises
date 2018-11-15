@@ -2,10 +2,16 @@ from IntermediateExercises.LibrarySystem.InterfaceLogic import *
 
 
 def interface():
+
+
     choice = input("Would you like to: \nA) Add a resource. "
                    " \nB) Remove a resource. "
                    "\nC) Add a person. "
-                   "\nD) Remove a person. \n").upper()
+                   "\nD) Remove a person. "
+                   "\nE) Check in a resource. "
+                   "\nF) Check out a resource."
+                   "\nG) Show people. "
+                   "\nH) Show resources. \n").upper()
 
     if choice == "A":
         add_resource()
@@ -15,6 +21,14 @@ def interface():
         add_person()
     elif choice == "D":
         remove_person()
+    elif choice == "E":
+        check_in()
+    elif choice == "F":
+        check_out()
+    elif choice == "G":
+        show_people()
+    elif choice == "H":
+        show_resources()
     else:
         print("Please choose one of the options")
         interface()
@@ -64,4 +78,25 @@ def end_prompt():
         end_prompt()
 
 
+def prompt_load_files():
+    choice = input("Would you like to: \nA) Load resources from a file. "
+                   " \nB) Load people from a file. "
+                   "\nC) Both. "
+                   "\nD) Neither. ").upper()
+
+    if choice == "A":
+        load_resources_from_file()
+    elif choice == "B":
+        load_people_from_file()
+    elif choice == "C":
+        load_resources_from_file()
+        load_people_from_file()
+    elif choice == "D":
+        print("You chose neither. \n")
+    else:
+        print("Please choose one of the options")
+        prompt_load_files()
+
+
+prompt_load_files()
 interface()

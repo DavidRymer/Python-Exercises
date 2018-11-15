@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from datetime import datetime
 from datetime import timedelta
 
@@ -15,5 +15,10 @@ class Resource(ABC):
 
     def check_in(self):
         self.return_date = None
+
+    @abstractmethod
+    def to_string(self):
+        pass
+
 
 
