@@ -16,7 +16,6 @@ class Grid(ABC):
             if 0 <= int(front_x) <= len(self.grid[0]):
                 condition = True
             else:
-                else:
                 print("Please select a valid value for x. \n")
 
     def prompt_front_y(self):
@@ -32,9 +31,6 @@ class Grid(ABC):
                 condition = True
             else:
                 print("Please select a valid value for y. \n")
-
-
-
 
 
 
